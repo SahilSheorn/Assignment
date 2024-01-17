@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import CourseList from './components/CourseList';
+import CourseDetails from './components/CourseDetails';
+import StudentDashboard from './components/StudentDashboard';
+
 import './App.css';
 
-function App() {
+const App = () => {
+  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [enrolledCourses, setEnrolledCourses] = useState([]);
+
+  const handleCourseClick = (course) => {
+    setSelectedCourse(course);
+  };
+
+  const handleEnrollClick = (course) => {
+    setEnrolledCourses([...enrolledCourses, course]);
+  };
+
+  const handleCompleteClick = (course) => {
+    // Implement completion logic
+    console.log(`Marking ${course.name} as completed`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <CourseList onCourseClick={handleCourseClick} />
+      <CourseDetails selectedCourse={selectedCourse} onEnrollClick={handleEnrollClick} />
+      <StudentDashboard enrolledCourses={enrolledCourses} onCompleteClick={handleCompleteClick} />
     </div>
   );
-}
+};
 
 export default App;
