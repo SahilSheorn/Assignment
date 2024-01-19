@@ -18,7 +18,7 @@ body {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
-  margin-top: 30px;
+  margin-top: 75px;
 }
 
 .course-list {
@@ -99,4 +99,23 @@ button {
 
 button:hover {
   background-color: #45a049;
+}
+
+.scroll-bar{
+  height: 600px;
+  overflow: scroll;
+}
+
+.syllabus-scroll{
+  height: 240px;
+  overflow: scroll;
+  
+}
+.syllabus-scroll::-webkit-scrollbar,.scroll-bar::-webkit-scrollbar{
+  display: none;
+}
+
+
+.close{
+  cursor: pointer;
 }

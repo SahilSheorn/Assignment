@@ -1,4 +1,3 @@
-// redux/reducers/courseReducer.js
 import { FETCH_COURSES } from '../actions/types';
 
 const initialState = [];
